@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,6 +35,8 @@ import static org.telegram.messenger.ui.matchers.TextMatcherDropHtml.withText;
 /**
  * Created by user on 28.03.2016.
  */
+
+
 @RunWith(AndroidJUnit4.class)
 @MediumTest
 public class IntroActivityTest {
@@ -49,9 +52,9 @@ public class IntroActivityTest {
                 .check(matches(isDisplayed()));
         onView(allOf(withId(R.id.header_text), isDisplayed()))
                 .check(matches(isDisplayed()));
-        onView(withId(R.id.icon_image1))
-                .check(matches(isDisplayed()));
         onView(withId(R.id.icon_image2))
+                .check(matches(isDisplayed()));
+        onView(withId(R.id.icon_image1))
                 .check(matches(not(isDisplayed())));
         onView(withId(R.id.bottom_pages))
                 .check(matches(isDisplayed()));
@@ -59,7 +62,7 @@ public class IntroActivityTest {
 
     @Test
     public void initial_state(){
-        onView(allOf(withId(R.id.icon_image1), isDisplayed()))
+        onView(allOf(withId(R.id.icon_image2), isDisplayed()))
                 .check(matches(withDrawable(LocaleController.isRTL ? R.drawable.intro7 : R.drawable.intro1)));
         onView(allOf(withId(R.id.header_text), isDisplayed()))
                 .check(matches(withText(LocaleController.isRTL ? R.string.Page7Title : R.string.Page1Title)));

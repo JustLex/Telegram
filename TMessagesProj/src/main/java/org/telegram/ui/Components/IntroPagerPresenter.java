@@ -14,8 +14,8 @@ public class IntroPagerPresenter implements IntroPresenter  {
     private IntroView view;
     private boolean startPressed;
 
-    public IntroPagerPresenter(IntroView view) {
-        allInfo = new IntroInfoHardcode();
+    public IntroPagerPresenter(IntroView view, IntroInfo model) {
+        allInfo = model;
         this.view = view;
         activeInfo = allInfo.getFirst();
         activePos = allInfo.getFirstPos();
@@ -53,5 +53,17 @@ public class IntroPagerPresenter implements IntroPresenter  {
     public void onResume() {
         view.setUnit(activeInfo);
         view.setPos(activePos);
+    }
+
+    public IntroInfoUnit getActiveInfo() {
+        return activeInfo;
+    }
+
+    public boolean isStartPressed() {
+        return startPressed;
+    }
+
+    public int getActivePos() {
+        return activePos;
     }
 }

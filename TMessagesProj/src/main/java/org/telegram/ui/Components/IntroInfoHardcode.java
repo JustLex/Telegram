@@ -10,7 +10,7 @@ public class IntroInfoHardcode implements IntroInfo{
     private IntroInfoUnit[] introUnits = {
         new IntroInfoUnit(R.drawable.intro1, R.string.Page1Title, R.string.Page1Message),
         new IntroInfoUnit(R.drawable.intro2, R.string.Page2Title, R.string.Page2Message),
-        new IntroInfoUnit(R.drawable.intro3, R.string.Page3Title, R.string.Page3Message),
+        new IntroInfoUnit(R.drawable.intro2, R.string.Page3Title, R.string.Page3Message),
         new IntroInfoUnit(R.drawable.intro4, R.string.Page4Title, R.string.Page4Message),
         new IntroInfoUnit(R.drawable.intro5, R.string.Page5Title, R.string.Page5Message),
         new IntroInfoUnit(R.drawable.intro6, R.string.Page6Title, R.string.Page6Message),
@@ -36,12 +36,12 @@ public class IntroInfoHardcode implements IntroInfo{
 
     @Override
     public int getFirstPos() {
-        return 0;
+        return isRTL ? (introUnits.length - 1) : 0;
     }
 
     @Override
     public int getLastPos() {
-        return introUnits.length - 1;
+        return isRTL ? 0 : introUnits.length - 1;
     }
 
     @Override
