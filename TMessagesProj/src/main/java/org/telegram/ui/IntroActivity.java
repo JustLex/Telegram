@@ -28,6 +28,7 @@ import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.R;
 import org.telegram.ui.Adapters.IntroAdapter;
+import org.telegram.ui.Components.IntroInfoHardcode;
 import org.telegram.ui.Components.IntroInfoUnit;
 import org.telegram.ui.Components.IntroPagerPresenter;
 import org.telegram.ui.Components.IntroView;
@@ -42,7 +43,7 @@ public class IntroActivity extends Activity implements IntroView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        modelPresenter = new IntroPagerPresenter(this);
+        modelPresenter = new IntroPagerPresenter(this, new IntroInfoHardcode());
         setTheme(R.style.Theme_TMessages);
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
